@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // 1. IMPORTUJEME useRouter
 import styles from './page.module.css';
 import Cookies from 'js-cookie'; // 1. IMPORTUJEME knižnicu pre prácu s cookies
+import Link from 'next/dist/client/link';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -64,6 +65,14 @@ export default function LoginPage() {
         />
         <button className={styles['login-button']} type="submit">Vstúpiť</button>
       </form>
+
+      {/* 2. PRIDANÝ ODKAZ NA REGISTRÁCIU */}
+      <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        <span style={{ color: '#ccc' }}>Nemáte ešte účet? </span>
+        <Link href="/register" style={{ color: '#007bff', textDecoration: 'none', fontWeight: 'bold' }}>
+          Zaregistrujte sa
+        </Link>
+      </div>
     </div>
   );
 }

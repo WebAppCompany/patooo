@@ -20,4 +20,14 @@ export class AppController {
     
     return { success: false, message: 'Nesprávne údaje.' };
   }
+  @Post('register')
+  async register(@Body() registerData: any) {
+   console.log('Nový používateľ na registráciu:', registerData);
+  
+    // Tu v budúcnosti pridáme uloženie do databázy (napr. PostgreSQL/Prisma)
+    return { 
+      success: true, 
+      message: 'Používateľ bol úspešne vytvorený' 
+    };
+  }
 }
